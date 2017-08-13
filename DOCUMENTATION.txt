@@ -1,0 +1,75 @@
+Cameron Utsman
+utsman.1@osu.edu
+CSE 3341 MWF 3-3:55
+Prof. Morris
+Lab 3 -- Core Executor DOCUMENTATION.txt
+3/22/17
+
+The Core Tokenizer/Parser and Core Executor are written using Java 8.
+
+Each class of node has a public constructor, and the public methods parse<Class> and print<Class> 
+
+From within the main routine found in Tokenizer.java, parseProgram is invoked, and the printProgram. The parseProgram and printProgram methods recursively parse and print all child nodes of a program, comprised of the 17 node classes implemented. 
+
+Executor invokes the tokenize method within Tokenizer. Rather than printing the program, it executes the program. It recurses in the same way as the Parser. It has additional methods to perform the computation specified by the program. Variables are stored, referenced, and updated in a static hash map.
+
+
+API
+
+All node classes contain a public constructor as well as public parse and print methods.
+
+Public Tokenizer Methods:
+
+// Public constructor
+    public Tokenizer()
+
+/*
+ * Return String of current token
+ */
+    public String currentToken()
+
+/*
+ * advance to next token
+ *
+ * removes next token from this.tokens and stores into this.pastTokens
+ *
+ * @requires current token is not EOF token
+ *
+ */
+    public void nextToken()
+
+/*
+ * Output all tokens in Tokenizer as strings
+ *
+ * @this -- the Tokenizer
+ *
+ */
+    public void printTokens()
+
+/*
+ *  Output numeric values of tokens to the console
+ *
+ *  @this -- the Tokenizer
+ */
+    public void printNumbers()
+
+/*
+ * Receives file name of Core source file, tokenizes files, and returns programNode
+ *
+ *
+ */
+    public ProgramNode tokenize(String fileName)
+
+
+All methods for all classes are documented within each class. 
+
+
+
+Testing:
+
+Program has been tested and verified to compile and execute on stdlinux. 
+
+Testing has been done against samples provided on the Carmen website. 
+
+Prior bugs from lab 2 pertaining to indentation and failed test cases have been fixed
+
